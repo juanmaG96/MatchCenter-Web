@@ -1,0 +1,52 @@
+<div class="predictions-container">
+  <div class="header">
+    <h2>Ingresar Pronósticos</h2>
+    <p class="subtitle">Predice el resultado exacto antes de que comience el partido.</p>
+  </div>
+
+  @if (successMessage()) {
+    <div class="alert success">{{ successMessage() }}</div>
+  }
+
+  @if (error()) {
+    <div class="alert danger">{{ error() }}</div>
+  }
+
+  @if (loading()) {
+    <div class="loader">Cargando partidos disponibles...</div>
+  } @else {
+    <div class="matches-grid">
+      @for (m of matches(); track m.id) {
+        <div class="prediction-card">
+          <div class="match-meta">
+            <span class="date">{{ m.matchDate | date: 'dd MMM, HH:mm' }}</span>
+          </div>
+
+          <div class="prediction-row">
+            <div class="team home">
+              <span class="team-name">{{ m.homeTeamName }}</span>
+              <span class="flag">{{ m.homeTeamId }}</span>
+            </div>
+
+            <div class="inputs">
+              <input type="number" min="0" [(ngModel)]="getPredictionModel(m.id).home" class="score-input" />
+              <span class="divider">-</span>
+              <input type="number" min="0" [(ngModel)]="getPredictionModel(m.id).away" class="score-input" />
+            </div>
+
+            <div class="team away">
+              <span class="flag">{{ m.awayTeamId }}</span>
+              <span class="team-name">{{ m.awayTeamName }}</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="submit-btn" (click)="submitPrediction(m.id)">Guardar Pronóstico</button>
+          </div>
+        </div>
+      } @empty {
+        <div class="empty-list">No hay partidos programados disponibles para predicción.</div>
+      }
+    </div>
+  }
+</div>

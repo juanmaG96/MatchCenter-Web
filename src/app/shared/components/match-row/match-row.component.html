@@ -1,0 +1,54 @@
+<div class="match-row" [class.live]="match().status === 1" [class.finished]="match().status === 2">
+  <div class="time-col">
+    <span class="time">{{ match().matchDate | date: 'dd MMM' : '-0300'}}</span>
+    <span class="time">{{ match().matchDate | date: 'HH:mm' : '-0300' }}</span>
+  </div>
+
+  <div class="teams-container">
+    <div class="team home">
+      <span class="team-name">{{ match().homeTeamName }} ({{ match().homeTeamId }})</span>
+      <img [src]="'flags/' + match().homeTeamId + '.svg'"
+          (error)="onImageError($event)" 
+            class="flag" 
+            alt="Flag">
+    </div>
+
+    <div class="score-box">
+      @if (match().status === 0) {
+        <span class="vs">vs</span>
+      } @else {
+        <span class="score">
+          <!-- Penal Local (Si existe) -->
+          @if (match().homePenaltyScore !== null && match().homePenaltyScore !== undefined) { 
+            <small class="penalty">({{ match().homePenaltyScore }}) </small> 
+          }
+          
+          {{ match().homeScore }} - {{ match().awayScore }}
+          
+          <!-- Penal Visitante (Si existe) -->
+          @if (match().awayPenaltyScore !== null && match().awayPenaltyScore !== undefined) { 
+            <small class="penalty">({{ match().awayPenaltyScore }}) </small> 
+          }
+        </span>
+      }
+    </div>
+
+    <div class="team away">
+      <img [src]="'flags/' + match().awayTeamId + '.svg'"
+          (error)="onImageError($event)" 
+            class="flag" 
+            alt="Flag">
+      <span class="team-name">({{ match().awayTeamId }}) {{ match().awayTeamName }} </span>
+    </div>
+  </div>
+
+  <div class="status-col">
+    @if (match().status === 1) {
+      <span class="badge live-badge">LIVE</span>
+    } @else if (match().status === 2) {
+      <span class="badge finished-badge">FIN</span>
+    } @else {
+      <span class="badge scheduled-badge">SCHED</span>
+    }
+  </div>
+</div>

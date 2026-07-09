@@ -1,0 +1,59 @@
+.bracket-wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; // Permite scrollear hacia los costados en pantallas chicas
+  background-color: #1a1a1a; // Tu fondo oscuro
+  padding: 20px;
+  gap: 30px;
+}
+
+.bracket-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; // La magia: separa los partidos equitativamente
+  min-width: 220px;
+}
+
+.phase-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.match-card {
+  background-color: #245A34; // El verde estilo Promiedos
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 13px;
+
+  .flag-mini {
+    width: 18px;
+    height: 13px;
+    margin-right: 8px;
+    border-radius: 2px;
+  }
+}
+
+.team-info { 
+  display: flex; 
+  gap: 8px; 
+  align-items: center; 
+}
+
+.placeholder-text {
+  color: #a0a0a0; // Gris para equipos por definir
+  font-style: italic;
+}

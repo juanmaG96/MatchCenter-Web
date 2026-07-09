@@ -1,0 +1,191 @@
+<div class="bracket-wrapper">
+  
+  <!-- Columna 16avos -->
+  <div class="bracket-column">
+    <h3 class="phase-title">16AVOS DE FINAL</h3>
+    @for (match of roundOf32(); track match.id) {
+      <div class="match-card">
+        <div class="team-row">
+          <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }} - </span>
+          @if (match.status !== 0) {
+          <span class="score-bracket">
+            {{ match.homeScore }} 
+            @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
+              <small>({{ match.homePenaltyScore }})</small> 
+            }
+          </span>
+          }
+        </div>
+        <div class="team-row">
+          <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} - </span>
+          @if (match.status !== 0) {
+            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+              <small>({{match.awayPenaltyScore}})</small> }</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Columna Octavos -->
+  <div class="bracket-column">
+    <h3 class="phase-title">OCTAVOS DE FINAL</h3>
+    @for (match of roundOf16(); track match.id) {
+      <div class="match-card">
+        <div class="team-row">
+          <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }} - </span>
+          @if (match.status !== 0) {
+          <span class="score-bracket">
+            {{ match.homeScore }} 
+            @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
+              <small>({{ match.homePenaltyScore }})</small> 
+            }
+          </span>
+          }
+        </div>
+        <div class="team-row">
+          <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} - </span>
+          @if (match.status !== 0) {
+            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+              <small>({{match.awayPenaltyScore}})</small> }</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Columna Cuartos -->
+  <div class="bracket-column">
+    <h3 class="phase-title">CUARTOS DE FINAL</h3>
+    @for (match of quarterFinals(); track match.id) {
+      <div class="match-card">
+        <div class="team-row">
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
+          @if (match.status !== 0) {
+          <span class="score-bracket">
+            {{ match.homeScore }} 
+            @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
+              <small>({{ match.homePenaltyScore }})</small> 
+            }
+          </span>
+          }
+        </div>
+        <div class="team-row">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
+          @if (match.status !== 0) {
+            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+              <small>({{match.awayPenaltyScore}})</small> }</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Columna Semis -->
+  <div class="bracket-column">
+    <h3 class="phase-title">SEMIFINALES</h3>
+    @for (match of semiFinals(); track match.id) {
+      <div class="match-card">
+        <div class="team-row">
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
+          @if (match.status !== 0) {
+          <span class="score-bracket">
+            {{ match.homeScore }} 
+            @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
+              <small>({{ match.homePenaltyScore }})</small> 
+            }
+          </span>
+          }
+        </div>
+        <div class="team-row">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
+          @if (match.status !== 0) {
+            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+              <small>({{match.awayPenaltyScore}})</small> }</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Columna 3er Puesto -->
+  <div class="bracket-column">
+    <h3 class="phase-title">3ER PUESTO</h3>
+    @for (match of thirdPlace(); track match.id) {
+      <div class="match-card highlight-third-place">
+        
+        <div class="team-row">
+          <img [src]="'assets/flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
+          
+          @if (match.status !== 0) {
+            <span class="score-bracket">
+              {{ match.homeScore }} 
+              @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
+                <small>({{ match.homePenaltyScore }})</small> 
+              }
+            </span>
+          }
+        </div>
+
+        <div class="team-row">
+          <img [src]="'assets/flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
+          
+          @if (match.status !== 0) {
+            <span class="score-bracket"> 
+              {{ match.awayScore }} 
+              @if (match.awayPenaltyScore !== null && match.awayPenaltyScore !== undefined) { 
+                <small>({{ match.awayPenaltyScore }})</small> 
+              }
+            </span>
+          }
+        </div>
+
+      </div>
+    }
+  </div>
+
+  <!-- Columna Final -->
+  <div class="bracket-column">
+    <h3 class="phase-title">FINAL</h3>
+    @for (match of final(); track match.id) {
+      <div class="match-card highlight-final">
+        
+        <div class="team-row">
+          <img [src]="'assets/flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
+          
+          @if (match.status !== 0) {
+            <span class="score-bracket">
+              {{ match.homeScore }} 
+              @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
+                <small>({{ match.homePenaltyScore }})</small> 
+              }
+            </span>
+          }
+        </div>
+
+        <div class="team-row">
+          <img [src]="'assets/flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
+          
+          @if (match.status !== 0) {
+            <span class="score-bracket"> 
+              {{ match.awayScore }} 
+              @if (match.awayPenaltyScore !== null && match.awayPenaltyScore !== undefined) { 
+                <small>({{ match.awayPenaltyScore }})</small> 
+              }
+            </span>
+          }
+        </div>
+
+      </div>
+    }
+  </div>
+  
+</div>

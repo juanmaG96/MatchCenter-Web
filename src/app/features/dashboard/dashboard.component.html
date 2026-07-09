@@ -1,0 +1,36 @@
+<div class="dashboard-container">
+  <div class="list-header">
+    <h2>Mundial 2026 - Match Center</h2>
+    <button class="refresh-btn" (click)="refresh()">
+      <span class="refresh-icon">🔄</span> Sincronizar
+    </button>
+  </div>
+
+  @if (loading()) {
+    <div class="loader-container">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Cargando fixture...</div>
+    </div>
+  } @else if (error()) {
+    <div class="error-msg">{{ error() }}</div>
+  } @else {
+    <div class="match-groups">
+      @for (group of groupedMatches(); track group.date) {
+        <div class="group-section">
+          <div class="group-date-header">
+            <span class="calendar-icon">📅</span>
+            {{ group.date | date: 'EEEE d \'de\' MMMM, y' }}
+          </div>
+          <div class="match-list">
+            @for (m of group.matches; track m.id) {
+              <app-match-row [match]="m"></app-match-row>
+            }
+          </div>
+        </div>
+      } @empty {
+        <div class="empty-list">No hay partidos disponibles en este momento.</div>
+      }
+    </div>
+  }
+</div>
+<app-bracket [matches]="matches()"></app-bracket>
