@@ -7,10 +7,9 @@
       <div class="match-card">
         <div class="team-row">
           <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
-          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }} - </span>
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }} </span>
           @if (match.status !== 0) {
-          <span class="score-bracket">
-            {{ match.homeScore }} 
+          <span class="score-bracket"> - {{ match.homeScore }} 
             @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
               <small>({{ match.homePenaltyScore }})</small> 
             }
@@ -19,9 +18,9 @@
         </div>
         <div class="team-row">
           <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
-          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} - </span>
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} </span>
           @if (match.status !== 0) {
-            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+            <span class="score-bracket"> - {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
               <small>({{match.awayPenaltyScore}})</small> }</span>
           }
         </div>
@@ -36,9 +35,9 @@
       <div class="match-card">
         <div class="team-row">
           <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
-          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }} - </span>
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}  </span>
           @if (match.status !== 0) {
-          <span class="score-bracket">
+          <span class="score-bracket"> - 
             {{ match.homeScore }} 
             @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
               <small>({{ match.homePenaltyScore }})</small> 
@@ -48,9 +47,9 @@
         </div>
         <div class="team-row">
           <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
-          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} - </span>
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} </span>
           @if (match.status !== 0) {
-            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+            <span class="score-bracket"> - {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
               <small>({{match.awayPenaltyScore}})</small> }</span>
           }
         </div>
@@ -64,10 +63,10 @@
     @for (match of quarterFinals(); track match.id) {
       <div class="match-card">
         <div class="team-row">
+          <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
           <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
           @if (match.status !== 0) {
-          <span class="score-bracket">
-            {{ match.homeScore }} 
+          <span class="score-bracket"> - {{ match.homeScore }} 
             @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
               <small>({{ match.homePenaltyScore }})</small> 
             }
@@ -75,9 +74,10 @@
           }
         </div>
         <div class="team-row">
-          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
+          <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} </span>
           @if (match.status !== 0) {
-            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+            <span class="score-bracket"> - {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
               <small>({{match.awayPenaltyScore}})</small> }</span>
           }
         </div>
@@ -91,10 +91,10 @@
     @for (match of semiFinals(); track match.id) {
       <div class="match-card">
         <div class="team-row">
-          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
+          <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.homeTeamName || match.homeTeamId }} </span>
           @if (match.status !== 0) {
-          <span class="score-bracket">
-            {{ match.homeScore }} 
+          <span class="score-bracket"> - {{ match.homeScore }} 
             @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
               <small>({{ match.homePenaltyScore }})</small> 
             }
@@ -102,9 +102,10 @@
           }
         </div>
         <div class="team-row">
-          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
+          <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <span class="team-info">{{ match.awayTeamName || match.awayTeamId }} </span>
           @if (match.status !== 0) {
-            <span class="score-bracket"> {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
+            <span class="score-bracket"> - {{ match.awayScore }} @if(match.awayPenaltyScore !== null){ 
               <small>({{match.awayPenaltyScore}})</small> }</span>
           }
         </div>
@@ -119,12 +120,11 @@
       <div class="match-card highlight-third-place">
         
         <div class="team-row">
-          <img [src]="'assets/flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
           <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
           
           @if (match.status !== 0) {
-            <span class="score-bracket">
-              {{ match.homeScore }} 
+            <span class="score-bracket"> - {{ match.homeScore }} 
               @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
                 <small>({{ match.homePenaltyScore }})</small> 
               }
@@ -133,12 +133,11 @@
         </div>
 
         <div class="team-row">
-          <img [src]="'assets/flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
           <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
           
           @if (match.status !== 0) {
-            <span class="score-bracket"> 
-              {{ match.awayScore }} 
+            <span class="score-bracket"> - {{ match.awayScore }} 
               @if (match.awayPenaltyScore !== null && match.awayPenaltyScore !== undefined) { 
                 <small>({{ match.awayPenaltyScore }})</small> 
               }
@@ -157,12 +156,11 @@
       <div class="match-card highlight-final">
         
         <div class="team-row">
-          <img [src]="'assets/flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <img [src]="'flags/' + match.homeTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
           <span class="team-info">{{ match.homeTeamName || match.homeTeamId }}</span>
           
           @if (match.status !== 0) {
-            <span class="score-bracket">
-              {{ match.homeScore }} 
+            <span class="score-bracket"> - {{ match.homeScore }} 
               @if (match.homePenaltyScore !== null && match.homePenaltyScore !== undefined) { 
                 <small>({{ match.homePenaltyScore }})</small> 
               }
@@ -171,12 +169,11 @@
         </div>
 
         <div class="team-row">
-          <img [src]="'assets/flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
+          <img [src]="'flags/' + match.awayTeamId + '.svg'" class="flag-mini" (error)="onImageError($event)">
           <span class="team-info">{{ match.awayTeamName || match.awayTeamId }}</span>
           
           @if (match.status !== 0) {
-            <span class="score-bracket"> 
-              {{ match.awayScore }} 
+            <span class="score-bracket"> - {{ match.awayScore }} 
               @if (match.awayPenaltyScore !== null && match.awayPenaltyScore !== undefined) { 
                 <small>({{ match.awayPenaltyScore }})</small> 
               }
