@@ -4,12 +4,16 @@
 }
 
 .match-row {
-  min-width: 0;
   display: grid;
-  grid-template-columns: 1fr 80px 1fr;
+  grid-template-columns: 80px 1fr 70px;
   align-items: center;
-  text-align: center;
-  font-weight: 500;
+  padding: 10px 16px;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2e2e2e;
+  color: #e0e0e0;
+  font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: #242424;
