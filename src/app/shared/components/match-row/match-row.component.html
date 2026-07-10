@@ -1,4 +1,4 @@
-<div class="match-row" [class.live]="match().status === 1" [class.finished]="match().status === 2" [class.scheduled]="match().status === 0">
+<div class="match-row" [class.live]="match().status == 1" [class.finished]="match().status == 2" [class.scheduled]="match().status == 0">
   <div class="time-col">
     <span class="time">{{ match().matchDate | date: 'dd MMM' : '-0300'}}</span>
     <span class="time">{{ match().matchDate | date: 'HH:mm' : '-0300' }}</span>
