@@ -51,4 +51,16 @@
       <span class="badge scheduled-badge">SCHED</span>
     }
   </div>
+
+  <div class="actions-col">
+    <!-- Solo mostrar si el partido NO está finalizado -->
+    @if (match().status !== 2) {
+      <button (click)="addToGoogleCalendar()" title="Añadir a Google Calendar">
+        📅
+      </button>
+      <button (click)="exportToCalendar()" title="Descargar .ics">
+        ⬇️
+      </button>
+    }
+  </div>
 </div>

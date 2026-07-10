@@ -61,5 +61,23 @@ export class MatchRowComponent {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   }
+
+  addToGoogleCalendar(): void {
+    const match = this.match();
+    const startDate = new Date(match.matchDate);
+    const endDate = new Date(startDate.getTime() + (2 * 60 * 60 * 1000));
+
+    const formatGoogleDate = (date: Date) => {
+      return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    };
+
+    const title = encodeURIComponent(`Mundial 2026: ${match.homeTeamName} vs ${match.awayTeamName}`);
+    const details = encodeURIComponent('Partido de la Copa del Mundo 2026. ¡No te lo pierdas!');
+    const dates = `${formatGoogleDate(startDate)}/${formatGoogleDate(endDate)}`;
+
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}`;
+    
+    window.open(googleCalendarUrl, '_blank');
+  }
   
 }

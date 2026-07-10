@@ -8,7 +8,7 @@
    ========================================= */
 .match-row {
   display: grid;
-  grid-template-columns: 80px 1fr 70px;
+  grid-template-columns: 80px 1fr 70px 60px;
   align-items: center;
   padding: 10px 16px;
   background-color: #1a1a1a;
@@ -180,7 +180,7 @@
 
 @media (max-width: 768px) {
   .match-row {
-    grid-template-columns: 45px 1fr 40px;
+    grid-template-columns: 45px 1fr 40px 30px;
     padding: 8px 6px;
     font-size: 12px;
   }
@@ -216,5 +216,34 @@
   .status-col .badge {
     font-size: 8.5px; 
     padding: 2px 4px;
+  }
+}
+
+.actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    color: #888;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
   }
 }
